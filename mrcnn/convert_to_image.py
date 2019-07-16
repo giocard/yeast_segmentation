@@ -73,3 +73,24 @@ def convert_to_image(rlefile, outputdirectory, preprocessed_image_list,
 
         if verbose:
             print ("Completed in", time.time() - start_time)
+            
+def convert_to_imagej(inputdirectory, outputdirectory):
+    import os
+    import numpy as np
+    from PIL import Image
+    import skimage.segmentation as seg
+
+    if outputdirectory[-1] != "/":
+        outputdirectory = outputdirectory + "/"
+    if not os.path.exists(outputdirectory):
+        os.makedirs(outputdirectory)
+
+    for filename in os.listdir(inputdirectory):
+        mask = np.array(Image.open(inputdirectory + filename)).astype(np.uint64)
+        borders = seg.find_boundaries(mask, mode='outer')
+        thres_mask = np.zeros(mask.shape, dtype=np.uint8)
+        thres_mask[mask == 0] = 255
+        thres_mask[borders > 0] = 255
+
+        thres_mask = Image.fromarray(thres_mask)
+        thres_mask.save(outputdirectory + filename + ".tif")
