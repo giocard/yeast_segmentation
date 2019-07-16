@@ -22,4 +22,7 @@ save_masks = True
 
 # Set to true to have the neural network print out its segmentation progress as it proceeds
 verbose = True
+
+# Set to true to output ImageJ-compatible masks
+output_imagej = False
 ##############################################
