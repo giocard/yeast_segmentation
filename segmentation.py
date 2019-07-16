@@ -38,12 +38,21 @@ if os.path.isdir(opt.output_directory):
         if opt.save_masks == True:
             if opt.verbose:
                 print("\nSaving the masks...")
-            convert_to_image(rle_file,
+            
+            if opt.output_imagej == True:
+                convert_to_imagej(rle_file,
                              output_mask_directory,
                              preprocessed_image_list,
                              rescale=opt.rescale,
                              scale_factor=opt.scale_factor,
                              verbose = opt.verbose)
+            else:
+                convert_to_image(rle_file,
+                                 output_mask_directory,
+                                 preprocessed_image_list,
+                                 rescale=opt.rescale,
+                                 scale_factor=opt.scale_factor,
+                                 verbose = opt.verbose)
 
         os.remove(preprocessed_image_list)
         
