@@ -4,7 +4,7 @@ import shutil
 
 from mrcnn.my_inference import predict_images
 from mrcnn.preprocess_images import preprocess_images
-from mrcnn.convert_to_image import convert_to_image
+from mrcnn.convert_to_image import convert_to_image, convert_to_imagej
 
 if opt.output_directory != '' and not os.path.isdir(opt.output_directory):
     os.mkdir(opt.output_directory)
