@@ -17,6 +17,7 @@ if os.path.isdir(opt.output_directory):
         preprocessed_image_list = opt.output_directory + "/preprocessed_images_list.csv"
         rle_file = opt.output_directory + "/compressed_masks.csv"
         output_mask_directory = opt.output_directory + "/masks/"
+        output_imagej_directory = opt.output_directory + "/imagej/"
 
         # Preprocess the images
         if opt.verbose:
@@ -40,12 +41,16 @@ if os.path.isdir(opt.output_directory):
                 print("\nSaving the masks...")
             
             if opt.output_imagej == True:
+                convert_to_image(rle_file,
+                                 output_mask_directory,
+                                 preprocessed_image_list,
+                                 rescale=opt.rescale,
+                                 scale_factor=opt.scale_factor,
+                                 verbose = opt.verbose)
+                
                 convert_to_imagej(rle_file,
                              output_mask_directory,
-                             preprocessed_image_list,
-                             rescale=opt.rescale,
-                             scale_factor=opt.scale_factor,
-                             verbose = opt.verbose)
+                             output_imagej_directory)
             else:
                 convert_to_image(rle_file,
                                  output_mask_directory,
