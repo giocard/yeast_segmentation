@@ -48,9 +48,8 @@ if os.path.isdir(opt.output_directory):
                                  scale_factor=opt.scale_factor,
                                  verbose = opt.verbose)
                 
-                convert_to_imagej(rle_file,
-                             output_mask_directory,
-                             output_imagej_directory)
+                convert_to_imagej(output_mask_directory,
+                                  output_imagej_directory)
             else:
                 convert_to_image(rle_file,
                                  output_mask_directory,
