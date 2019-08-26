@@ -51,7 +51,7 @@ def numpy2encoding(predicts, img_name, scores=None,threshold=0.7,dilation=False)
 
 def write2csv(file, ImageId, EncodedPixels):
     df = pd.DataFrame({ 'ImageId' : ImageId , 'EncodedPixels' : EncodedPixels})
-    with open(file, 'a') as f:
+    with open(file, 'a', newline='') as f:
          df.to_csv(f, index=False, columns=['ImageId', 'EncodedPixels'], header=False)
 
     
