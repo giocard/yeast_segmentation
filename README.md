@@ -5,7 +5,7 @@ Code to segment yeast cells using a pre-trained mask-rcnn model. We've tested th
 (Adapted from the code of Deep Retina from the Kaggle 2018 Data Science Bowl, all credit for training models and wrangling the Mask-RCNN code goes to them: https://github.com/Lopezurrutia/DSB_2018)
 
 ## Note on packages
-We've received a few messages that this code breaks with the latest versions of Keras/Tensorflow, since their imports are in different places now. We'll eventually get around to releasing an updated version that works with more recent versions, but for now, downgrading your packages to the minimal versions specified in requirements.txt will fix these import errors.
+We've received a few messages that this code breaks with the latest versions of Keras/Tensorflow, since their imports are in different places now. We'll eventually get around to releasing an updated version that works with more recent versions (when I finally get my thesis done and submitted, probably!), but for now, downgrading your packages to the minimal versions specified in requirements.txt will fix these import errors.
 
 ## Downloading the Weights
 For this model to work, you will need the pre-trained weights for the neural network, which are too large to share on GitHub. You can grab them from our webserver as a zip file (http://hershey.csb.utoronto.ca/weights.zip) or from Zenodo (https://zenodo.org/record/3598690).
