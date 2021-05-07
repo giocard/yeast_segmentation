@@ -1,9 +1,9 @@
-numpy
+numpy >= 1.9.1
 scipy
-scikit-image
+scikit-image == 0.14.2
 pillow
 pandas
-h5py
-opencv
-tensorflow >= 1.10
-keras >= 2.2.4
+h5py < 3.0.0
+opencv-python
+tensorflow == 1.14
+keras == 2.2.4
