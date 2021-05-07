@@ -43,7 +43,7 @@ def preprocess_images(inputdirectory, inputchannel, outputdirectory, outputfile,
             image = np.expand_dims(image, axis=-1)
             rgbimage = np.tile(image, 3)                          #convert to RGB
 
-            imagename = imagename.split(".")[0]
+            imagename = os.path.splitext(imagename)[0]
 
             if not os.path.exists(outputdirectory + imagename):
                 os.makedirs(outputdirectory + imagename)
