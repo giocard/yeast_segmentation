@@ -2,6 +2,7 @@ import numpy as np
 from PIL import Image
 import os
 import skimage.exposure
+from skimage import io
 
 '''Convert input images to RGB format in separate folders required by MRCNN
 
@@ -27,7 +28,7 @@ def preprocess_images(inputdirectory, outputdirectory, outputfile, verbose = Fal
             if verbose:
                 print ("Preprocessing ", imagename)
 
-            image = np.array(Image.open(inputdirectory + imagename))
+            image = io.imread(inputdirectory + imagename) #GCA
             if len(image.shape) > 2:
                 image = image[:, :, 0]
             height = image.shape[0]
