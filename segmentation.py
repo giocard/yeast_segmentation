@@ -23,6 +23,7 @@ if os.path.isdir(opt.output_directory):
         if opt.verbose:
             print ("\nPreprocessing your images...")
         preprocess_images(opt.input_directory,
+                          opt.input_channel,
                           preprocessed_image_directory,
                           preprocessed_image_list,
                           verbose = opt.verbose)

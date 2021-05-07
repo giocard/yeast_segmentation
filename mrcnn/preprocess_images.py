@@ -10,7 +10,7 @@ Arguments:
 inputdirectory: Input directory containing images.
 outputdirectory: Output directory to put new files in.
 outputfile: Path to save comma-delimited file that will tell the neural network the image paths.'''
-def preprocess_images(inputdirectory, outputdirectory, outputfile, verbose = False):
+def preprocess_images(inputdirectory, inputchannel, outputdirectory, outputfile, verbose = False):
     if inputdirectory[-1] != "/":
         inputdirectory = inputdirectory + "/"
     if outputdirectory[-1] != "/":
@@ -29,8 +29,11 @@ def preprocess_images(inputdirectory, outputdirectory, outputfile, verbose = Fal
                 print ("Preprocessing ", imagename)
 
             image = io.imread(inputdirectory + imagename) #GCA
+            if len(image.shape) > 3:
+                print ("ERROR: skipping %s because image has more than 3 dimension (only 2D multi-channel images supported)."%imagename)
+                continue
             if len(image.shape) > 2:
-                image = image[:, :, 0]
+                image = image[:, :, inputchannel-1]
             height = image.shape[0]
             width = image.shape[1]
 

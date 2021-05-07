@@ -2,6 +2,9 @@
 # Input directory of images to be segmented
 input_directory = "/valr/alexlu/new_segmentation_test_images/input_images/"
 
+# Channel to extract from input images (1 = first channel)
+input_channel = 1
+
 # Output directory to save masks to
 output_directory = "/valr/alexlu/new_segmentation_test_images/test_output/"
 ##############################################
