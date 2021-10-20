@@ -10,6 +10,9 @@ output_directory = "/valr/alexlu/new_segmentation_test_images/test_output/"
 ##############################################
 
 ################## OPTIONS ###################
+# Set to maximum number of objects to detect in each image
+max_detected_objects = 1024
+
 # Set to true to rescale the input images to reduce segmentation time
 rescale = False
 scale_factor = 2          # Factor to downsize images by if rescale is True

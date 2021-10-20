@@ -35,6 +35,7 @@ if os.path.isdir(opt.output_directory):
                        rle_file,
                        rescale = opt.rescale,
                        scale_factor = opt.scale_factor,
+                       max_detected_objects = opt.max_detected_objects,
                        verbose = opt.verbose)
 
         if opt.save_masks == True:

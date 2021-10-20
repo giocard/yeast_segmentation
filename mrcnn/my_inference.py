@@ -83,9 +83,11 @@ inputfile: Path of the comma-delimited file of images names.
 outputfile: Path to write the comma-delimited run-length file to.
 rescale: Set to True if rescale images before processing (saves time)
 scale_factor: Multiplier to downsample images by
+max_detected_objects: maximum number of detections allowed
 verbose: Verbose or not (true/false)'''
-def predict_images(test_path, sample_submission, outputfilename, rescale = False, scale_factor = 2, verbose = True):
+def predict_images(test_path, sample_submission, outputfilename, rescale = False, scale_factor = 2, max_detected_objects = None, verbose = True):
     inference_config = BowlConfig()
+    if max_detected_objects: inference_config.DETECTION_MAX_INSTANCES = max_detected_objects
     ROOT_DIR = os.getcwd()
     MODEL_DIR = os.path.join(ROOT_DIR, "logs")
 
